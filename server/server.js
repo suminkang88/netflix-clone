@@ -36,5 +36,5 @@ app.get("/api/search", (req, res) => {
 
 //서버 실행 명령
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
