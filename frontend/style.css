@@ -439,3 +439,58 @@ ul {
 #search-input::placeholder {
   color: var(--color-muted);
 }
+
+/* 검색 결과*/
+.search-results {
+  position: fixed;
+  top: var(--header-h); /* 헤더 높이만큼 아래부터 시작 */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 20px;
+  padding: 40px;
+  overflow-y: auto;
+  z-index: 4000; /* 헤더(1000)보다 위, 검색 input보다 아래로 */
+}
+
+/* 검색 중(active 상태) */
+body.show-overlay .search-results {
+  display: flex; /* ✅ 보이게 */
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.search-results img {
+  width: 180px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.search-results img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+.no-result {
+  width: 100%;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 18px;
+  margin-top: 150px;
+}
